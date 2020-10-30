@@ -1,36 +1,16 @@
 package TPE.juegoDeCartas;
 
-import java.util.ArrayList;
-
 public abstract class Potion extends PotionElement{
-    private ArrayList<Attribute> atributs;
+    private Attribute attribute;
 
-    public Potion(String name) {
+    public Potion(String name, Attribute attribute) {
         super(name);
-        atributs = new ArrayList<>();
+        this.attribute = attribute;
     }
 
-    public void addAtribut(Attribute atr){
-        if(!atributs.contains(atr)){
-            atributs.add(atr);
-        }
-    }
 
-    public int getAmountOfAtributs(){
-
-        return atributs.size();
-    }
-
-    //determino si la pocion ya existe
-    public boolean equals(Object obj){
-        try{
-            Potion potion = (Potion) obj;
-            return (this.getName().equals(potion.getName()) &&
-                    this.getAmountOfAtributs() == potion.getAmountOfAtributs());
-        }catch (Exception e){
-            return false;
-        }
-    }
+    //Es abstracta porque cada pocion va a aplicar el efecto de forma distinta
+    public abstract int applyEffects(String atrName, int atrValue);
 
 
 }

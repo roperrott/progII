@@ -5,14 +5,14 @@ import java.util.Collections;
 
 public class Card {
 	private String name;
-	private ArrayList<Attribute> atributs;
+	private ArrayList<Attribute> attributes;
 	private PotionElement potion;
 
 	
 	public Card(String name) {
 		super();
 		this.name = name;
-		atributs = new ArrayList<Attribute>();
+		attributes = new ArrayList<Attribute>();
 		potion = null;
 	}
 
@@ -27,7 +27,7 @@ public class Card {
 	}
 	
 	public void addAtribut(Attribute at) {
-		atributs.add(at);
+		attributes.add(at);
 	}
 
 	public String getName() {
@@ -37,9 +37,10 @@ public class Card {
 	public void setName(String name) {
 		this.name = name;
 	}
-	
-	public ArrayList<Attribute> getAtributs(){
-		return new ArrayList<Attribute>(atributs);
+
+	//REVEER NO SE SI ES NECESARIO!!
+	public ArrayList<Attribute> getAttributes(){
+		return new ArrayList<Attribute>(attributes);
 	}
 	
 	//calcula una posicion del arreglo de atributos al azar
@@ -48,16 +49,16 @@ public class Card {
 	public String getRandomAtr() {
 		int i = 0;
 		String aux = "";
-		int atributsQ = atributs.size();
+		int attributesQ = attributes.size();
 		
-			i = (int) Math.floor((Math.random()*atributsQ));
-			aux = atributs.get(i).getName();
+			i = (int) Math.floor((Math.random()*attributesQ));
+			aux = attributes.get(i).getName();
 			
 		return aux;
 	}
 
 	public String pickHigherAtribut(){
-		ArrayList<Attribute> aux = new ArrayList<>(atributs);
+		ArrayList<Attribute> aux = new ArrayList<>(attributes);
 		Collections.sort(aux);
 		Collections.reverse(aux);
 		return aux.get(0).getName();
@@ -65,7 +66,7 @@ public class Card {
 
 	
 	public boolean containsAtribut(Attribute atr) {
-		return atributs.contains(atr);
+		return attributes.contains(atr);
 	}
 	
 	//Agarro el atributo de la carta por medio
@@ -73,19 +74,10 @@ public class Card {
 	
 	public Attribute getAtrByName(String name ) {
 		
-		for(int i=0; i<atributs.size(); i++) {
-			Attribute aux = atributs.get(i);
+		for(int i=0; i<attributes.size(); i++) {
+			Attribute aux = attributes.get(i);
 			if(aux.getName().equals(name))
 				return aux;
-		}
-		return null;
-	}
-
-	public String getFavoriteAttribute(String atr){
-		for(int i=0; i<atributs.size(); i++) {
-			Attribute aux = atributs.get(i);
-			if(aux.getName().equals(name))
-				return aux.getName();
 		}
 		return null;
 	}
@@ -95,10 +87,10 @@ public class Card {
 			
 			if(this.getAtributsQuantity() == card.getAtributsQuantity()) {
 				
-				for (int i = 0 ; i< this.atributs.size();i++) {
-					Attribute atribut = this.atributs.get(i);
+				for (int i = 0 ; i< this.attributes.size();i++) {
+					Attribute attribute = this.attributes.get(i);
 					
-					if(!card.containsAtribut(atribut)) {
+					if(!card.containsAtribut(attribute)) {
 						return false;
 					}
 				}
@@ -109,7 +101,7 @@ public class Card {
 		}
 	
 	public int getAtributsQuantity() {
-		return atributs.size();
+		return attributes.size();
 	}
 	
 	

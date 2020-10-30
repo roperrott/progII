@@ -1,18 +1,18 @@
 package TPE.juegoDeCartas;
 
 public class StubbornStrategy implements Strategy{
-    private String atribut;
+    private String attribute;
 
-    public StubbornStrategy(String atribut) {
-        this.atribut = atribut;
+    public StubbornStrategy(String attribute) {
+        this.attribute = attribute;
     }
 
-    public void setAtribut(String atribut) {
-        this.atribut = atribut;
+    public void setAttribute(String attribute) {
+        this.attribute = attribute;
     }
 
     @Override
     public String selectAttribute(Card c) {
-        return c.getFavoriteAttribute(atribut);
+         return attribute;
     }
 }

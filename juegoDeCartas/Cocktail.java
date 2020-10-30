@@ -10,6 +10,14 @@ public class Cocktail extends PotionElement{
         potions = new ArrayList<>();
     }
 
+    @Override
+    public int applyEffects(String atrName, int atrValue) {
+        for(PotionElement elem: potions){
+            atrValue = elem.applyEffects(atrName, atrValue);
+        }
+        return atrValue;
+    }
+
     public void addPotion (PotionElement potion){
         if(!potions.contains(potion)){
             potions.add(potion);
