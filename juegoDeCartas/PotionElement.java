@@ -1,4 +1,4 @@
-package TPE.juegoDeCartas;
+package juegoDeCartas;
 
 public abstract class PotionElement {
     private String name;

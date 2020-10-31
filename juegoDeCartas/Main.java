@@ -1,9 +1,9 @@
-package TPE.juegoDeCartas;
+package juegoDeCartas;
 
 public class Main {
 
 	public static void main(String[] args) {
-		String mazoPath = "./src/TPE/VisorMazo/superheroes.json";
+		String mazoPath = "./src/VisorMazo/superheroes.json";
 
 		RandomStrategy random = new RandomStrategy();
 

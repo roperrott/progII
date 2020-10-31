@@ -1,4 +1,4 @@
-package TPE.juegoDeCartas;
+package juegoDeCartas;
 
 import java.util.ArrayList;
 

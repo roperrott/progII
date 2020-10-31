@@ -1,4 +1,4 @@
-package TPE.juegoDeCartas;
+package juegoDeCartas;
 
 public class Attribute implements Comparable<Attribute> {
 	private String name;

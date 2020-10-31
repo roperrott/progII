@@ -1,4 +1,4 @@
-package TPE.juegoDeCartas;
+package juegoDeCartas;
 
 public abstract class Potion extends PotionElement{
     private Attribute attribute;

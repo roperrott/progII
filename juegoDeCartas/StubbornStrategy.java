@@ -1,4 +1,4 @@
-package TPE.juegoDeCartas;
+package juegoDeCartas;
 
 public class StubbornStrategy implements Strategy{
     private String attribute;

@@ -1,4 +1,4 @@
-package TPE.juegoDeCartas;
+package juegoDeCartas;
 
 import javax.json.Json;
 import javax.json.JsonArray;
