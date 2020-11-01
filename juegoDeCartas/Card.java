@@ -77,8 +77,8 @@ public class Card {
 		for(int i=0; i<attributes.size(); i++) {
 			Attribute aux = attributes.get(i);
 			if(aux.getName().equals(name))
-				return aux;
-		}
+				return new Attribute(aux.getName(), aux.getValue());
+		} /* retorno nuevo atributo para que pueda ser modificable por la pocima sin alterar al atr original */
 		return null;
 	}
 	
@@ -108,6 +108,15 @@ public class Card {
 	@Override
 	public String toString() {
 		return name;
+	}
+
+	public String getPotionName() {
+		return this.potion.getName();
+	}
+
+	// chequear
+	public PotionElement getPotion() {
+		return this.potion;
 	}
 
 }

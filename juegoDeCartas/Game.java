@@ -21,7 +21,7 @@ public class Game {
 		this.cards = cards;
 		this.maxRounds = maxRounds;
 		this.roundWinner = roundWinner;
-		historyLog = " ";
+		historyLog = "";
 		potions = new ArrayList<>();
 	}
 
@@ -78,7 +78,7 @@ public class Game {
 	}
 
 	private void spreadCard(Player p){
-		Card c = cards.getFirstCard();
+		Card c = cards.pickFirstCard();
 		this.dividePotions(c);
 		p.addCard(c);
 		p.shuffleMyCards();
@@ -142,7 +142,7 @@ public class Game {
 	
 	public void startRound() {
 
-		String playedAttribute = roundWinner.pickAttribute(roundWinner.getFirstCard()); //random responsabilidad del jugador
+		String playedAttribute = roundWinner.pickAttribute(roundWinner.getFirstCard());
 		
 		Card card1 = player1.pickFirstCard();
 		Card card2 = player2.pickFirstCard();
@@ -151,10 +151,12 @@ public class Game {
 		Attribute atr2 = card2.getAtrByName(playedAttribute);
 		
 		this.addHistoryLog("El Jugador " + roundWinner + " selecciona competir por el atributo "+playedAttribute+"\n");
-		this.addHistoryLog("La Carta de " + player1 + " es " + card1 + " con " + atr1 + "\n");
-		this.addHistoryLog("La Carta de " + player2 + " es " + card2 + " con " + atr2 + "\n");
 		
-		int comparison = atr1.compareTo(atr2);
+		int valor1 = ifPotionLogic(player1, card1, atr1);
+		int valor2 = ifPotionLogic(player2, card2, atr2);
+
+		// int comparison = atr1.compareTo(atr2);
+		int comparison = valor1 - valor2;
 		
 		if (comparison > 0) {
 			this.setWinner(player1 , card1, card2);
@@ -171,6 +173,23 @@ public class Game {
 		this.addHistoryLog(player1 + " posee ahora " + player1.getAmountOfCards() + " cartas y "+
 				player2+" posee ahora " + player2.getAmountOfCards() + " cartas\n\n");
 	
+	}
+	
+	private int ifPotionLogic(Player p, Card c, Attribute a) {
+		this.addHistoryLog("La Carta de " + p + " es " + c + " con " + a);
+		
+		if (c.hasPotion()) {
+			
+			int valor = c.getPotion().applyEffects(a.getName(), a.getValue());
+			this.addHistoryLog(", se aplico pocima\n" + c.getPotionName() + " valor resultante "+ valor+"\n");
+			return valor;
+			
+		} else {
+			
+			this.addHistoryLog("\n");
+			return a.getValue();
+		}
+		
 	}
 	
 	private void setWinner(Player player, Card card1, Card card2) {
