@@ -3,8 +3,9 @@ package juegoDeCartas;
 public class Main {
 
 	public static void main(String[] args) {
-		String mazoPath = "./src/JsonsMazos/superheroes.json";
+		String mazoPath = "./src/JsonsMazos/autos.json";
 
+//		StubbornStrategy stubborn = new StubbornStrategy("RPM");
 		RandomStrategy random = new RandomStrategy();
 		AmbitiousStrategy ambitious = new AmbitiousStrategy();
 
