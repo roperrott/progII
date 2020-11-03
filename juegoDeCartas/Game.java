@@ -2,6 +2,8 @@ package juegoDeCartas;
 
 import java.util.ArrayList;
 
+import potions.PotionElement;
+
 public class Game {
 	
 	private Player player1;
@@ -81,7 +83,6 @@ public class Game {
 		Card c = cards.pickFirstCard();
 		this.dividePotions(c);
 		p.addCard(c);
-		p.shuffleMyCards();
 	}
 
 	private void dividePotions(Card c){
@@ -100,6 +101,8 @@ public class Game {
 			}else {
 				this.spreadCard(player1);
 			}
+			player1.shuffleMyCards();
+			player2.shuffleMyCards();
 		}
 	}
 	
@@ -152,10 +155,9 @@ public class Game {
 		
 		this.addHistoryLog("El Jugador " + roundWinner + " selecciona competir por el atributo "+playedAttribute+"\n");
 		
-		int valor1 = ifPotionLogic(player1, card1, atr1);
-		int valor2 = ifPotionLogic(player2, card2, atr2);
+		int valor1 = hasPotionLogic(player1, card1, atr1);
+		int valor2 = hasPotionLogic(player2, card2, atr2);
 
-		// int comparison = atr1.compareTo(atr2);
 		int comparison = valor1 - valor2;
 		
 		if (comparison > 0) {
@@ -175,7 +177,7 @@ public class Game {
 	
 	}
 	
-	private int ifPotionLogic(Player p, Card c, Attribute a) {
+	private int hasPotionLogic(Player p, Card c, Attribute a) {
 		this.addHistoryLog("La Carta de " + p + " es " + c + " con " + a);
 		
 		if (c.hasPotion()) {

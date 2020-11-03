@@ -3,6 +3,8 @@ package juegoDeCartas;
 import java.util.ArrayList;
 import java.util.Collections;
 
+import potions.PotionElement;
+
 public class Card {
 	private String name;
 	private ArrayList<Attribute> attributes;
@@ -37,11 +39,6 @@ public class Card {
 	public void setName(String name) {
 		this.name = name;
 	}
-
-	//REVEER NO SE SI ES NECESARIO!!
-	public ArrayList<Attribute> getAttributes(){
-		return new ArrayList<Attribute>(attributes);
-	}
 	
 	//calcula una posicion del arreglo de atributos al azar
 	//hago un casting a int porque sino devuelve un double
@@ -60,8 +57,7 @@ public class Card {
 	public String pickHigherAtribut(){
 		ArrayList<Attribute> aux = new ArrayList<>(attributes);
 		Collections.sort(aux);
-		Collections.reverse(aux);
-		return aux.get(0).getName();
+		return aux.get(aux.size()-1).getName();
 	}
 
 	
@@ -114,7 +110,6 @@ public class Card {
 		return this.potion.getName();
 	}
 
-	// chequear
 	public PotionElement getPotion() {
 		return this.potion;
 	}

@@ -1,4 +1,4 @@
-package juegoDeCartas;
+package potions;
 
 public class PotionFixedValue extends Potion {
 

@@ -1,5 +1,7 @@
 package juegoDeCartas;
 
+import strategies.Strategy;
+
 public class Player{
 	private String name;
 	private CardDeck myCards;

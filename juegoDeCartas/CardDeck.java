@@ -90,6 +90,7 @@ public class CardDeck {
 		int i = 0;
 		return cards.remove(i);
 	}
+	
 	public Card getFirstCard() {
 		int i = 0;
 		return cards.get(i);

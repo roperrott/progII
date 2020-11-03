@@ -1,4 +1,4 @@
-package juegoDeCartas;
+package potions;
 
 public abstract class PotionElement {
     private String name;
@@ -15,6 +15,7 @@ public abstract class PotionElement {
 
     public abstract int applyEffects(String atrName, int atrValue);
 
+    
     @Override
     public boolean equals(Object o) {
     	try {

@@ -1,4 +1,6 @@
-package juegoDeCartas;
+package strategies;
+
+import juegoDeCartas.Card;
 
 public class StubbornStrategy implements Strategy{
     private String attribute;

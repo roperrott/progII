@@ -1,4 +1,6 @@
-package juegoDeCartas;
+package strategies;
+
+import juegoDeCartas.Card;
 
 public class RandomStrategy implements Strategy{
 

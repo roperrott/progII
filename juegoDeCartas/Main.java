@@ -1,5 +1,11 @@
 package juegoDeCartas;
 
+import potions.Cocktail;
+import potions.PotionFixedValue;
+import potions.PotionPercentage;
+import strategies.AmbitiousStrategy;
+import strategies.RandomStrategy;
+
 public class Main {
 
 	public static void main(String[] args) {
@@ -28,15 +34,25 @@ public class Main {
 		PotionFixedValue pot6 = new PotionFixedValue("Numero Magico", null, 23);
 		PotionPercentage pot7 = new PotionPercentage("P.S.Fuerza", "fuerza", 20);
 		PotionPercentage pot8 = new PotionPercentage("P.S.Peso", "peso", 20);
-		Cocktail ct = new Cocktail ("Cocktail");
-		Cocktail ct2 = new Cocktail("Cocktail Magico");
 		
-		ct.addPotion(pot2);
-		ct.addPotion(pot7);
+		PotionPercentage pot9 = new PotionPercentage("Fortalecedora", null, 15);
+		PotionPercentage pot10 = new PotionPercentage("Forcalecedora Plus", null, 40);
+		PotionPercentage pot11 = new PotionPercentage("Kriptonita", null, -40);
+		PotionPercentage pot12 = new PotionPercentage("Reductor De Plomo", null, -80);
+		PotionFixedValue pot13 = new PotionFixedValue("Quiero Vale Cuatro", null, 7);
+		PotionFixedValue pot14 = new PotionFixedValue("Numero Magico", null, 10);
+		PotionPercentage pot15 = new PotionPercentage("P.S.Fuerza", "RPM", 30);
+		PotionPercentage pot16 = new PotionPercentage("P.S.Peso", "cm3", 30);
 		
-		ct2.addPotion(pot6);
-		ct2.addPotion(ct);
+		Cocktail pot17 = new Cocktail ("Cocktail");
+		Cocktail pot18 = new Cocktail("Cocktail Magico");
 		
+		pot17.addPotion(pot2);
+		pot17.addPotion(pot7);
+		
+		pot18.addPotion(pot6);
+		pot18.addPotion(pot17);
+
 		g1.addPotionToGame(pot1);
 		g1.addPotionToGame(pot2);
 		g1.addPotionToGame(pot3);
@@ -45,8 +61,16 @@ public class Main {
 		g1.addPotionToGame(pot6);
 		g1.addPotionToGame(pot7);
 		g1.addPotionToGame(pot8);
-		g1.addPotionToGame(ct);
-		g1.addPotionToGame(ct2);
+		g1.addPotionToGame(pot9);
+		g1.addPotionToGame(pot10);
+		g1.addPotionToGame(pot11);
+		g1.addPotionToGame(pot12);
+		g1.addPotionToGame(pot13);
+		g1.addPotionToGame(pot14);
+		g1.addPotionToGame(pot15);
+		g1.addPotionToGame(pot16);
+		g1.addPotionToGame(pot17);
+		g1.addPotionToGame(pot18);
 		
 		g1.startGame();
 		

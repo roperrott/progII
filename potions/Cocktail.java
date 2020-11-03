@@ -1,4 +1,4 @@
-package juegoDeCartas;
+package potions;
 
 import java.util.ArrayList;
 

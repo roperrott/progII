@@ -19,8 +19,7 @@ public class Attribute implements Comparable<Attribute> {
 		return value;
 	}
 
-	// puede ser que se cambie el valor de los
-	//atributos de las pócimas (por ejemplo de 23 ser 25 el número mágico).
+//	ver con seba ma�ana
 	public void setValue(int value) {
 		this.value = value;
 	}

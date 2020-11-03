@@ -1,4 +1,4 @@
-package juegoDeCartas;
+package potions;
 
 public abstract class Potion extends PotionElement{
 	
