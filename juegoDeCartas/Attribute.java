@@ -19,11 +19,6 @@ public class Attribute implements Comparable<Attribute> {
 		return value;
 	}
 
-//	ver con seba mañana
-	public void setValue(int value) {
-		this.value = value;
-	}
-
 	public boolean equals(Object o1) {
 		try {
 			Attribute at1 = (Attribute) o1;

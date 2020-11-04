@@ -114,4 +114,29 @@ public class Card {
 		return this.potion;
 	}
 
+	public int hasPotionValue(String playedAttribute) {
+		Attribute atr = this.getAtrByName(playedAttribute);
+		if (this.hasPotion())
+			
+			return this.getPotion().applyEffects(atr.getName() , atr.getValue());
+		else 
+			return atr.getValue();
+	}
+
+	public String hasPotionLog(String playedAttribute) {
+		String log = "";
+		Attribute atr = this.getAtrByName(playedAttribute);
+		if (this.hasPotion()) {
+			
+			log += (atr + ", se aplico pocima\n" + this.getPotionName() + 
+					" valor resultante " + this.hasPotionValue(playedAttribute) + "\n");
+			return log;
+			
+		} else {
+			
+			log += (atr + "\n");
+			return log;
+		}
+	}
+
 }

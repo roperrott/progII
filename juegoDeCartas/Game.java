@@ -150,14 +150,18 @@ public class Game {
 		Card card1 = player1.pickFirstCard();
 		Card card2 = player2.pickFirstCard();
 
-		Attribute atr1 = card1.getAtrByName(playedAttribute);
-		Attribute atr2 = card2.getAtrByName(playedAttribute);
-		
 		this.addHistoryLog("El Jugador " + roundWinner + " selecciona competir por el atributo "+playedAttribute+"\n");
 		
-		int valor1 = hasPotionLogic(player1, card1, atr1);
-		int valor2 = hasPotionLogic(player2, card2, atr2);
-
+		this.addHistoryLog("La Carta de " + player1 + " es " + card1 + " con ");
+		
+		int valor1 = card1.hasPotionValue(playedAttribute);
+		this.addHistoryLog(card1.hasPotionLog(playedAttribute));
+		
+		this.addHistoryLog("La Carta de " + player2 + " es " + card2 + " con ");
+		
+		int valor2 = card2.hasPotionValue(playedAttribute); 
+		this.addHistoryLog(card2.hasPotionLog(playedAttribute));
+		
 		int comparison = valor1 - valor2;
 		
 		if (comparison > 0) {
@@ -177,23 +181,7 @@ public class Game {
 	
 	}
 	
-	private int hasPotionLogic(Player p, Card c, Attribute a) {
-		this.addHistoryLog("La Carta de " + p + " es " + c + " con " + a);
-		
-		if (c.hasPotion()) {
-			
-			int valor = c.getPotion().applyEffects(a.getName(), a.getValue());
-			this.addHistoryLog(", se aplico pocima\n" + c.getPotionName() + " valor resultante "+ valor+"\n");
-			return valor;
-			
-		} else {
-			
-			this.addHistoryLog("\n");
-			return a.getValue();
-		}
-		
-	}
-	
+
 	private void setWinner(Player player, Card card1, Card card2) {
 		player.addCard(card2);
 		player.addCard(card1);

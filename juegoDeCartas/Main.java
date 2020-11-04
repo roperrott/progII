@@ -1,21 +1,18 @@
 package juegoDeCartas;
 
-import potions.Cocktail;
-import potions.PotionFixedValue;
-import potions.PotionPercentage;
-import strategies.AmbitiousStrategy;
-import strategies.RandomStrategy;
+import potions.*;
+import strategies.*;
 
 public class Main {
 
 	public static void main(String[] args) {
-		String mazoPath = "./src/JsonsMazos/autos.json";
+		String mazoPath = "./src/mazos/superheroes.json";
 
-//		StubbornStrategy stubborn = new StubbornStrategy("RPM");
+		StubbornStrategy stubborn = new StubbornStrategy("fuerza");
 		RandomStrategy random = new RandomStrategy();
-		AmbitiousStrategy ambitious = new AmbitiousStrategy();
+//		AmbitiousStrategy ambitious = new AmbitiousStrategy();
 
-		Player p1 = new Player("Lucho", ambitious);
+		Player p1 = new Player("Lucho", stubborn);
 		Player p2 = new Player("Rope", random);
 
 		CardDeck cd1 = new CardDeck("MazoImportado");
@@ -41,8 +38,8 @@ public class Main {
 		PotionPercentage pot12 = new PotionPercentage("Reductor De Plomo", null, -80);
 		PotionFixedValue pot13 = new PotionFixedValue("Quiero Vale Cuatro", null, 7);
 		PotionFixedValue pot14 = new PotionFixedValue("Numero Magico", null, 10);
-		PotionPercentage pot15 = new PotionPercentage("P.S.Fuerza", "RPM", 30);
-		PotionPercentage pot16 = new PotionPercentage("P.S.Peso", "cm3", 30);
+		PotionPercentage pot15 = new PotionPercentage("P.S.RPM", "RPM", 30);
+		PotionPercentage pot16 = new PotionPercentage("P.S.cm3", "cm3", 30);
 		
 		Cocktail pot17 = new Cocktail ("Cocktail");
 		Cocktail pot18 = new Cocktail("Cocktail Magico");

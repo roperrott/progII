@@ -4,9 +4,9 @@ public abstract class Potion extends PotionElement{
 	
 	private String atrModifName;
 	
-    public Potion(String name, String atrModif) {
+    public Potion(String name, String atrModifName) {
         super(name);
-        this.atrModifName = atrModif;
+        this.atrModifName = atrModifName;
     }
 
     public String getAtrModifName() {
